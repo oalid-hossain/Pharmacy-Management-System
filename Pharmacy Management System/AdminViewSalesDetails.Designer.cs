@@ -76,6 +76,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAdViSaDeSearch = new System.Windows.Forms.Button();
+            this.lblAdViSaDeToDateError = new System.Windows.Forms.Label();
+            this.lblAdViSaDeFromDateError = new System.Windows.Forms.Label();
             this.btnAdViSaDeClearAll = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -85,9 +88,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAdViSaDeSearchTo = new System.Windows.Forms.TextBox();
             this.txtAdViSaDeSearchFrom = new System.Windows.Forms.TextBox();
-            this.lblAdViSaDeFromDateError = new System.Windows.Forms.Label();
-            this.lblAdViSaDeToDateError = new System.Windows.Forms.Label();
-            this.btnAdViSaDeSearch = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -589,6 +589,34 @@
             this.panel4.Size = new System.Drawing.Size(424, 310);
             this.panel4.TabIndex = 31;
             // 
+            // btnAdViSaDeSearch
+            // 
+            this.btnAdViSaDeSearch.Location = new System.Drawing.Point(220, 203);
+            this.btnAdViSaDeSearch.Name = "btnAdViSaDeSearch";
+            this.btnAdViSaDeSearch.Size = new System.Drawing.Size(114, 70);
+            this.btnAdViSaDeSearch.TabIndex = 11;
+            this.btnAdViSaDeSearch.Text = "Search";
+            this.btnAdViSaDeSearch.UseVisualStyleBackColor = true;
+            this.btnAdViSaDeSearch.Click += new System.EventHandler(this.btnAdViSaDeSearch_Click);
+            // 
+            // lblAdViSaDeToDateError
+            // 
+            this.lblAdViSaDeToDateError.AutoSize = true;
+            this.lblAdViSaDeToDateError.Location = new System.Drawing.Point(104, 163);
+            this.lblAdViSaDeToDateError.Name = "lblAdViSaDeToDateError";
+            this.lblAdViSaDeToDateError.Size = new System.Drawing.Size(44, 16);
+            this.lblAdViSaDeToDateError.TabIndex = 10;
+            this.lblAdViSaDeToDateError.Text = "label5";
+            // 
+            // lblAdViSaDeFromDateError
+            // 
+            this.lblAdViSaDeFromDateError.AutoSize = true;
+            this.lblAdViSaDeFromDateError.Location = new System.Drawing.Point(104, 92);
+            this.lblAdViSaDeFromDateError.Name = "lblAdViSaDeFromDateError";
+            this.lblAdViSaDeFromDateError.Size = new System.Drawing.Size(44, 16);
+            this.lblAdViSaDeFromDateError.TabIndex = 9;
+            this.lblAdViSaDeFromDateError.Text = "label2";
+            // 
             // btnAdViSaDeClearAll
             // 
             this.btnAdViSaDeClearAll.Location = new System.Drawing.Point(51, 203);
@@ -668,34 +696,6 @@
             this.txtAdViSaDeSearchFrom.Size = new System.Drawing.Size(151, 22);
             this.txtAdViSaDeSearchFrom.TabIndex = 0;
             // 
-            // lblAdViSaDeFromDateError
-            // 
-            this.lblAdViSaDeFromDateError.AutoSize = true;
-            this.lblAdViSaDeFromDateError.Location = new System.Drawing.Point(104, 92);
-            this.lblAdViSaDeFromDateError.Name = "lblAdViSaDeFromDateError";
-            this.lblAdViSaDeFromDateError.Size = new System.Drawing.Size(44, 16);
-            this.lblAdViSaDeFromDateError.TabIndex = 9;
-            this.lblAdViSaDeFromDateError.Text = "label2";
-            // 
-            // lblAdViSaDeToDateError
-            // 
-            this.lblAdViSaDeToDateError.AutoSize = true;
-            this.lblAdViSaDeToDateError.Location = new System.Drawing.Point(104, 163);
-            this.lblAdViSaDeToDateError.Name = "lblAdViSaDeToDateError";
-            this.lblAdViSaDeToDateError.Size = new System.Drawing.Size(44, 16);
-            this.lblAdViSaDeToDateError.TabIndex = 10;
-            this.lblAdViSaDeToDateError.Text = "label5";
-            // 
-            // btnAdViSaDeSearch
-            // 
-            this.btnAdViSaDeSearch.Location = new System.Drawing.Point(220, 203);
-            this.btnAdViSaDeSearch.Name = "btnAdViSaDeSearch";
-            this.btnAdViSaDeSearch.Size = new System.Drawing.Size(114, 70);
-            this.btnAdViSaDeSearch.TabIndex = 11;
-            this.btnAdViSaDeSearch.Text = "Search";
-            this.btnAdViSaDeSearch.UseVisualStyleBackColor = true;
-            this.btnAdViSaDeSearch.Click += new System.EventHandler(this.btnAdViSaDeSearch_Click);
-            // 
             // AdminViewSalesDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -709,6 +709,7 @@
             this.Name = "AdminViewSalesDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminViewSalesDetails";
+            this.Load += new System.EventHandler(this.AdminViewSalesDetails_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

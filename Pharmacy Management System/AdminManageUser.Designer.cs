@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageUser));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblAdManaUserUserRoleError = new System.Windows.Forms.Label();
             this.txtAdManaUserSearchByRole = new System.Windows.Forms.TextBox();
             this.txtAdManaUserSearchByName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -69,7 +70,7 @@
             this.dtpAdManaUserUserDOB = new System.Windows.Forms.DateTimePicker();
             this.txtAdManaUserUserName = new System.Windows.Forms.TextBox();
             this.txtAdManaUserUserPhone = new System.Windows.Forms.TextBox();
-            this.txtAdManUserUserEmail = new System.Windows.Forms.TextBox();
+            this.txtAdManaUserUserEmail = new System.Windows.Forms.TextBox();
             this.txtAdManaUserUserSalary = new System.Windows.Forms.TextBox();
             this.txtAdManaUserUserId = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -91,6 +92,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblAdManaUserUserRoleError);
             this.panel2.Controls.Add(this.txtAdManaUserSearchByRole);
             this.panel2.Controls.Add(this.txtAdManaUserSearchByName);
             this.panel2.Controls.Add(this.label13);
@@ -118,13 +120,22 @@
             this.panel2.Controls.Add(this.dtpAdManaUserUserDOB);
             this.panel2.Controls.Add(this.txtAdManaUserUserName);
             this.panel2.Controls.Add(this.txtAdManaUserUserPhone);
-            this.panel2.Controls.Add(this.txtAdManUserUserEmail);
+            this.panel2.Controls.Add(this.txtAdManaUserUserEmail);
             this.panel2.Controls.Add(this.txtAdManaUserUserSalary);
             this.panel2.Controls.Add(this.txtAdManaUserUserId);
             this.panel2.Location = new System.Drawing.Point(440, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(948, 746);
             this.panel2.TabIndex = 4;
+            // 
+            // lblAdManaUserUserRoleError
+            // 
+            this.lblAdManaUserUserRoleError.AutoSize = true;
+            this.lblAdManaUserUserRoleError.Location = new System.Drawing.Point(514, 92);
+            this.lblAdManaUserUserRoleError.Name = "lblAdManaUserUserRoleError";
+            this.lblAdManaUserUserRoleError.Size = new System.Drawing.Size(51, 16);
+            this.lblAdManaUserUserRoleError.TabIndex = 30;
+            this.lblAdManaUserUserRoleError.Text = "label15";
             // 
             // txtAdManaUserSearchByRole
             // 
@@ -162,9 +173,9 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(517, 158);
+            this.panel3.Location = new System.Drawing.Point(517, 172);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 103);
+            this.panel3.Size = new System.Drawing.Size(400, 89);
             this.panel3.TabIndex = 27;
             // 
             // panel6
@@ -226,7 +237,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(434, 110);
+            this.label10.Location = new System.Drawing.Point(434, 127);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 16);
             this.label10.TabIndex = 23;
@@ -234,7 +245,7 @@
             // 
             // txtAdManaUserUserPassword
             // 
-            this.txtAdManaUserUserPassword.Location = new System.Drawing.Point(517, 105);
+            this.txtAdManaUserUserPassword.Location = new System.Drawing.Point(517, 122);
             this.txtAdManaUserUserPassword.Name = "txtAdManaUserUserPassword";
             this.txtAdManaUserUserPassword.Size = new System.Drawing.Size(200, 22);
             this.txtAdManaUserUserPassword.TabIndex = 22;
@@ -247,6 +258,7 @@
             this.btnAdManaUserDelete.TabIndex = 21;
             this.btnAdManaUserDelete.Text = "Delete";
             this.btnAdManaUserDelete.UseVisualStyleBackColor = true;
+            this.btnAdManaUserDelete.Click += new System.EventHandler(this.btnAdManaUserDelete_Click);
             // 
             // dgvAdManaUser
             // 
@@ -273,6 +285,7 @@
             this.dgvAdManaUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAdManaUser.Size = new System.Drawing.Size(948, 297);
             this.dgvAdManaUser.TabIndex = 19;
+            this.dgvAdManaUser.DoubleClick += new System.EventHandler(this.dgvAdManaUser_DoubleClick);
             // 
             // UserID
             // 
@@ -393,6 +406,7 @@
             this.btnAdManaUserSave.TabIndex = 14;
             this.btnAdManaUserSave.Text = "Save";
             this.btnAdManaUserSave.UseVisualStyleBackColor = true;
+            this.btnAdManaUserSave.Click += new System.EventHandler(this.btnAdManaUserSave_Click);
             // 
             // label8
             // 
@@ -485,12 +499,12 @@
             this.txtAdManaUserUserPhone.Size = new System.Drawing.Size(200, 22);
             this.txtAdManaUserUserPhone.TabIndex = 3;
             // 
-            // txtAdManUserUserEmail
+            // txtAdManaUserUserEmail
             // 
-            this.txtAdManUserUserEmail.Location = new System.Drawing.Point(150, 165);
-            this.txtAdManUserUserEmail.Name = "txtAdManUserUserEmail";
-            this.txtAdManUserUserEmail.Size = new System.Drawing.Size(200, 22);
-            this.txtAdManUserUserEmail.TabIndex = 2;
+            this.txtAdManaUserUserEmail.Location = new System.Drawing.Point(150, 165);
+            this.txtAdManaUserUserEmail.Name = "txtAdManaUserUserEmail";
+            this.txtAdManaUserUserEmail.Size = new System.Drawing.Size(200, 22);
+            this.txtAdManaUserUserEmail.TabIndex = 2;
             // 
             // txtAdManaUserUserSalary
             // 
@@ -628,6 +642,7 @@
             this.Name = "AdminManageUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminManageUser";
+            this.Load += new System.EventHandler(this.AdminManageUser_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -651,7 +666,7 @@
         private System.Windows.Forms.Button btnAdManaUserDashBoard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtAdManUserUserEmail;
+        private System.Windows.Forms.TextBox txtAdManaUserUserEmail;
         private System.Windows.Forms.TextBox txtAdManaUserUserSalary;
         private System.Windows.Forms.TextBox txtAdManaUserUserId;
         private System.Windows.Forms.Button btnAdManaUserClear;
@@ -694,5 +709,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn JoiningDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserDOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
+        private System.Windows.Forms.Label lblAdManaUserUserRoleError;
     }
 }

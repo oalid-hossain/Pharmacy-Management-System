@@ -19,12 +19,6 @@ namespace Pharmacy_Management_System
             
             InitializeComponent();
             this.Da = new DataAccess();
-            this.dgvAdViewSalesDetails.AutoGenerateColumns = false;
-            
-            this.PupulateGridView(@"SELECT s.SaleID,sd.MedicineID,sd.Quantity,s.TotalAmount,s.SaleDate,  
-                                  s.UserID FROM Sales s INNER JOIN SalesDetails sd ON s.SaleID = sd.SaleID;");
-            this.pnlAdViSaDeSellerAndProductDetails.Visible = false;
-            
         }
 
         private void PupulateGridView(string sql)
@@ -119,62 +113,81 @@ namespace Pharmacy_Management_System
 
         private void btnAdViSaDeSearch_Click(object sender, EventArgs e)
         {
-
-            DateTime sysDate = DateTime.Now;
-            DateTime minDate = GetMinSaleDate();
-
-            string fromText = txtAdViSaDeSearchFrom.Text;
-            string toText = txtAdViSaDeSearchTo.Text;
-
-            // ---------------- FROM ----------------
-            if (fromText == "")
+            try
             {
-                fromText = minDate.ToString("yyyy-MM-dd");
-            }
+                DateTime sysDate = DateTime.Now;
+                DateTime minDate = GetMinSaleDate();
 
-            // ---------------- TO ----------------
-            if (toText == "")
-            {
-                toText = sysDate.ToString("yyyy-MM-dd");
-            }
+                string fromText = txtAdViSaDeSearchFrom.Text;
+                string toText = txtAdViSaDeSearchTo.Text;
 
-            // ---------------- VALIDATION ----------------
-            if (Convert.ToDateTime(fromText) > sysDate) 
-            {
-                this.lblAdViSaDeFromDateError.Text = "Invalid Input";
-                return;
-            }
-            if (Convert.ToDateTime(toText) > sysDate)
-            {
-                this.lblAdViSaDeToDateError.Text = "Invalid Input";
-                return;
-            }
+                // ---------------- FROM ----------------
+                if (fromText == "")
+                {
+                    fromText = minDate.ToString("yyyy-MM-dd");
+                }
 
-            if (Convert.ToDateTime(fromText) > Convert.ToDateTime(toText))
-            {
-                MessageBox.Show("Invalid Input");
-                return;
-            }
+                // ---------------- TO ----------------
+                if (toText == "")
+                {
+                    toText = sysDate.ToString("yyyy-MM-dd");
+                }
 
-            // ---------------- QUERY (PURE CONCAT) ----------------
-            string sql = @"SELECT s.SaleID, sd.MedicineID, sd.Quantity,s.TotalAmount, s.SaleDate, s.UserID
+                // ---------------- VALIDATION ----------------
+                if (Convert.ToDateTime(fromText) > sysDate)
+                {
+                    this.lblAdViSaDeFromDateError.Text = "Invalid Input";
+                    return;
+                }
+                if (Convert.ToDateTime(toText) > sysDate)
+                {
+                    this.lblAdViSaDeToDateError.Text = "Invalid Input";
+                    return;
+                }
+
+                if (Convert.ToDateTime(fromText) > Convert.ToDateTime(toText))
+                {
+                    MessageBox.Show("Invalid Input");
+                    return;
+                }
+
+                // ---------------- QUERY (PURE CONCAT) ----------------
+                string sql = @"SELECT s.SaleID, sd.MedicineID, sd.Quantity,s.TotalAmount, s.SaleDate, s.UserID
                            FROM Sales s
                             INNER JOIN SalesDetails sd ON s.SaleID = sd.SaleID
                              WHERE CONVERT(date, s.SaleDate)
                               BETWEEN '" + fromText + "' AND '" + toText + "'";
 
 
+
+
+                DataTable dt = Da.ExecuteQueryTable(sql);
+
+                dgvAdViewSalesDetails.DataSource = dt;
+
+                dgvAdViewSalesDetails.ClearSelection();
+                dgvAdViewSalesDetails.CurrentCell = null;
+            }
+
+
+            catch (Exception ex) 
+            {
+                    MessageBox.Show("Invalid Input.\n Details:\n" + ex);
             
-
-            DataTable dt = Da.ExecuteQueryTable(sql);
-
-            dgvAdViewSalesDetails.DataSource = dt;
-
-            dgvAdViewSalesDetails.ClearSelection();
-            dgvAdViewSalesDetails.CurrentCell = null;
+            }
 
 
 
+        }
+
+        private void AdminViewSalesDetails_Load(object sender, EventArgs e)
+        {
+            this.dgvAdViewSalesDetails.ClearSelection();
+            this.dgvAdViewSalesDetails.AutoGenerateColumns = false;
+
+            this.PupulateGridView(@"SELECT s.SaleID,sd.MedicineID,sd.Quantity,s.TotalAmount,s.SaleDate,  
+                                  s.UserID FROM Sales s INNER JOIN SalesDetails sd ON s.SaleID = sd.SaleID;");
+            this.pnlAdViSaDeSellerAndProductDetails.Visible = false;
         }
     }
 }

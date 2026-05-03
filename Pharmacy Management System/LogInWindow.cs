@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,7 +83,7 @@ namespace Pharmacy_Management_System
                         string role = dtLogin.Rows[0]["UserRole"].ToString();
                         if(role=="Admin")
                         {
-                            AdminWindow ad = new AdminWindow();
+                            AdminWindow ad = new AdminWindow(username,password);
                             ad.Show();
                             this.Hide();
                             return;

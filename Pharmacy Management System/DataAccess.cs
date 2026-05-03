@@ -8,6 +8,23 @@ using System.Threading.Tasks;
 
 namespace Pharmacy_Management_System
 {
+    public static class LoginInfoTrack
+    {
+        private static string loggedInUserRole;
+        private static string loggedInUserPassword;
+
+        public static string LoggedInUserRole
+        {
+            get { return loggedInUserRole; }
+            set { loggedInUserRole = value; }
+        }
+
+        public static string LoggedInUserPassword
+        {
+            get { return loggedInUserPassword; }
+            set { loggedInUserPassword = value; }
+        }
+    }
     public class DataAccess
     {
 

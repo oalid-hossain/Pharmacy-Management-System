@@ -12,16 +12,11 @@ namespace Pharmacy_Management_System
 {
     public partial class AdminProfile : Form
     {
+        public DataAccess Da { get; set; }
         public AdminProfile()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AdminWindow aw = new AdminWindow();
-            aw.Show();
-            this.Close();
+            this.Da = new DataAccess();
         }
 
         private void btnAdProClear_Click(object sender, EventArgs e)
@@ -89,6 +84,35 @@ namespace Pharmacy_Management_System
         private void btnAdProMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AdminProfile_Load(object sender, EventArgs e)
+        {
+            string role = LoginInfoTrack.LoggedInUserRole;
+            string password = LoginInfoTrack.LoggedInUserPassword;
+
+            string query = "SELECT UserId, UserName,UserPhone,UserEmail,UserRole,UserPassword,JoiningDate,UserDOB,Salary " +
+                           "FROM Users " +
+                           "WHERE UserRole = '" + role + "' and UserPassword ='"+password+"';";
+
+            var dt = Da.ExecuteQueryTable(query);
+
+            if (dt.Rows.Count == 1)
+            {
+                this.txtAdProUserID.Text = dt.Rows[0]["UserId"].ToString();
+                this.txtAdProUserName.Text = dt.Rows[0]["UserName"].ToString();
+                this.txtAdProUserPhone.Text = dt.Rows[0]["UserPhone"].ToString();
+                this.txtAdProUserEmail.Text = dt.Rows[0]["UserEmail"].ToString();
+                this.txtAdProSalary.Text = dt.Rows[0]["Salary"].ToString();
+                this.dtpAdProUserDOB.Value = Convert.ToDateTime(dt.Rows[0]["UserDOB"]);
+                this.txtAdProJoiningDate.Text =Convert.ToDateTime(dt.Rows[0]["JoiningDate"]).ToString("yyyy-MM-dd");
+                this.txtAdProUserRole.Text = dt.Rows[0]["UserRole"].ToString();
+                this.txtAdProUserPassword.Text = dt.Rows[0]["UserPassword"].ToString();
+                return;
+                
+            }
+
+
         }
     }
 }

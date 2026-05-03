@@ -12,17 +12,33 @@ namespace Pharmacy_Management_System
 {
     public partial class AdminWindow : Form
     {
+        
         public DataAccess Da {  get; set; }
-        public AdminWindow()
+        public AdminWindow(string LoggedInUserRole,string LoggedInUserPassword)
         {
             InitializeComponent();
+
+            LoginInfoTrack.LoggedInUserRole = LoggedInUserRole;
+            LoginInfoTrack.LoggedInUserPassword = LoggedInUserPassword;
+            
             this.Da = new DataAccess();
             DataTable dt = Da.ExecuteQueryTable("SELECT COUNT(*) AS TotalUsers FROM Users;");
             this.lblAdWinTotalUserCount.Text = dt.Rows[0]["TotalUsers"].ToString();
             this.dgvAdminWindow.AutoGenerateColumns = false;
 
         }
-        
+
+        public AdminWindow()
+        {
+            InitializeComponent();
+
+            this.Da = new DataAccess();
+            DataTable dt = Da.ExecuteQueryTable("SELECT COUNT(*) AS TotalUsers FROM Users;");
+            this.lblAdWinTotalUserCount.Text = dt.Rows[0]["TotalUsers"].ToString();
+            this.dgvAdminWindow.AutoGenerateColumns = false;
+
+        }
+
 
         private void btnAdWinLogOut_Click(object sender, EventArgs e)
         {

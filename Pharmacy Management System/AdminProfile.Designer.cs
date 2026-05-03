@@ -42,16 +42,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpAdProUserDOB = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAdProUserID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAdProUserPassword = new System.Windows.Forms.TextBox();
+            this.txtAdProUserRole = new System.Windows.Forms.TextBox();
+            this.txtAdProSalary = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAdProJoiningDate = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -210,28 +210,28 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtAdProUserID);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox2);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.txtAdProUserPassword);
+            this.panel3.Controls.Add(this.txtAdProUserRole);
+            this.panel3.Controls.Add(this.txtAdProSalary);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.textBox5);
+            this.panel3.Controls.Add(this.txtAdProJoiningDate);
             this.panel3.Location = new System.Drawing.Point(539, 48);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(371, 345);
             this.panel3.TabIndex = 38;
             // 
-            // textBox1
+            // txtAdProUserID
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 17;
+            this.txtAdProUserID.Location = new System.Drawing.Point(118, 15);
+            this.txtAdProUserID.Name = "txtAdProUserID";
+            this.txtAdProUserID.ReadOnly = true;
+            this.txtAdProUserID.Size = new System.Drawing.Size(200, 22);
+            this.txtAdProUserID.TabIndex = 17;
             // 
             // label12
             // 
@@ -269,29 +269,29 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "Joining Date";
             // 
-            // textBox3
+            // txtAdProUserPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(200, 22);
-            this.textBox3.TabIndex = 19;
+            this.txtAdProUserPassword.Location = new System.Drawing.Point(118, 117);
+            this.txtAdProUserPassword.Name = "txtAdProUserPassword";
+            this.txtAdProUserPassword.ReadOnly = true;
+            this.txtAdProUserPassword.Size = new System.Drawing.Size(200, 22);
+            this.txtAdProUserPassword.TabIndex = 19;
             // 
-            // textBox2
+            // txtAdProUserRole
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(200, 22);
-            this.textBox2.TabIndex = 18;
+            this.txtAdProUserRole.Location = new System.Drawing.Point(118, 66);
+            this.txtAdProUserRole.Name = "txtAdProUserRole";
+            this.txtAdProUserRole.ReadOnly = true;
+            this.txtAdProUserRole.Size = new System.Drawing.Size(200, 22);
+            this.txtAdProUserRole.TabIndex = 18;
             // 
-            // textBox4
+            // txtAdProSalary
             // 
-            this.textBox4.Location = new System.Drawing.Point(118, 168);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(200, 22);
-            this.textBox4.TabIndex = 20;
+            this.txtAdProSalary.Location = new System.Drawing.Point(118, 168);
+            this.txtAdProSalary.Name = "txtAdProSalary";
+            this.txtAdProSalary.ReadOnly = true;
+            this.txtAdProSalary.Size = new System.Drawing.Size(200, 22);
+            this.txtAdProSalary.TabIndex = 20;
             // 
             // label5
             // 
@@ -302,13 +302,13 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Role";
             // 
-            // textBox5
+            // txtAdProJoiningDate
             // 
-            this.textBox5.Location = new System.Drawing.Point(118, 219);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(200, 22);
-            this.textBox5.TabIndex = 21;
+            this.txtAdProJoiningDate.Location = new System.Drawing.Point(118, 219);
+            this.txtAdProJoiningDate.Name = "txtAdProJoiningDate";
+            this.txtAdProJoiningDate.ReadOnly = true;
+            this.txtAdProJoiningDate.Size = new System.Drawing.Size(200, 22);
+            this.txtAdProJoiningDate.TabIndex = 21;
             // 
             // label10
             // 
@@ -437,6 +437,7 @@
             this.Name = "AdminProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminProfile";
+            this.Load += new System.EventHandler(this.AdminProfile_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -480,11 +481,11 @@
         private System.Windows.Forms.TextBox txtAdProUserName;
         private System.Windows.Forms.TextBox txtAdProUserPhone;
         private System.Windows.Forms.TextBox txtAdProUserEmail;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAdProJoiningDate;
+        private System.Windows.Forms.TextBox txtAdProSalary;
+        private System.Windows.Forms.TextBox txtAdProUserPassword;
+        private System.Windows.Forms.TextBox txtAdProUserRole;
+        private System.Windows.Forms.TextBox txtAdProUserID;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dtpAdProUserDOB;
     }
