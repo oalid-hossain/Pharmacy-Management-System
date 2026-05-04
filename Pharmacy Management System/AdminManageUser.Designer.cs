@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManageUser));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblAdManaUserUserRoleError = new System.Windows.Forms.Label();
             this.txtAdManaUserSearchByRole = new System.Windows.Forms.TextBox();
             this.txtAdManaUserSearchByName = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -92,7 +91,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lblAdManaUserUserRoleError);
             this.panel2.Controls.Add(this.txtAdManaUserSearchByRole);
             this.panel2.Controls.Add(this.txtAdManaUserSearchByName);
             this.panel2.Controls.Add(this.label13);
@@ -127,15 +125,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(948, 746);
             this.panel2.TabIndex = 4;
-            // 
-            // lblAdManaUserUserRoleError
-            // 
-            this.lblAdManaUserUserRoleError.AutoSize = true;
-            this.lblAdManaUserUserRoleError.Location = new System.Drawing.Point(514, 92);
-            this.lblAdManaUserUserRoleError.Name = "lblAdManaUserUserRoleError";
-            this.lblAdManaUserUserRoleError.Size = new System.Drawing.Size(51, 16);
-            this.lblAdManaUserUserRoleError.TabIndex = 30;
-            this.lblAdManaUserUserRoleError.Text = "label15";
             // 
             // txtAdManaUserSearchByRole
             // 
@@ -709,6 +698,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn JoiningDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserDOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
-        private System.Windows.Forms.Label lblAdManaUserUserRoleError;
     }
 }

@@ -246,6 +246,7 @@ namespace Pharmacy_Management_System
 
                 this.PopulateGridView();
                 this.ClearAll();
+                this.AutoUserIdGenerate();
             }
             catch (Exception exc)
             {
@@ -281,6 +282,7 @@ namespace Pharmacy_Management_System
 
                 this.PopulateGridView();
                 this.ClearAll();
+                this.AutoUserIdGenerate();
             }
             catch (Exception exc)
             {

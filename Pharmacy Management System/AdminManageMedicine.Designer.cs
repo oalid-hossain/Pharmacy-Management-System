@@ -90,12 +90,16 @@
             this.txtAdManaMediPurchasePrice = new System.Windows.Forms.TextBox();
             this.txtAdManaMediSellPrice = new System.Windows.Forms.TextBox();
             this.txtAdManaMediMedicineId = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtAdManaMediPurchaseId = new System.Windows.Forms.TextBox();
+            this.pnlAdManaMediPurchaseId = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdManaMedi)).BeginInit();
+            this.pnlAdManaMediPurchaseId.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -210,6 +214,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pnlAdManaMediPurchaseId);
             this.panel2.Controls.Add(this.txtAdManaMediSearchByCategory);
             this.panel2.Controls.Add(this.txtAdManaMediSearchByName);
             this.panel2.Controls.Add(this.label20);
@@ -361,6 +366,7 @@
             this.btnAdManaMediDelete.TabIndex = 21;
             this.btnAdManaMediDelete.Text = "Delete";
             this.btnAdManaMediDelete.UseVisualStyleBackColor = true;
+            this.btnAdManaMediDelete.Click += new System.EventHandler(this.btnAdManaMediDelete_Click);
             // 
             // panel3
             // 
@@ -587,6 +593,7 @@
             this.btnAdManaMediSave.TabIndex = 14;
             this.btnAdManaMediSave.Text = "Save";
             this.btnAdManaMediSave.UseVisualStyleBackColor = true;
+            this.btnAdManaMediSave.Click += new System.EventHandler(this.btnAdManaMediSave_Click);
             // 
             // label8
             // 
@@ -701,6 +708,32 @@
             this.txtAdManaMediMedicineId.Size = new System.Drawing.Size(200, 22);
             this.txtAdManaMediMedicineId.TabIndex = 0;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(78, 16);
+            this.label21.TabIndex = 30;
+            this.label21.Text = "Purchase Id";
+            // 
+            // txtAdManaMediPurchaseId
+            // 
+            this.txtAdManaMediPurchaseId.Location = new System.Drawing.Point(112, 7);
+            this.txtAdManaMediPurchaseId.Name = "txtAdManaMediPurchaseId";
+            this.txtAdManaMediPurchaseId.ReadOnly = true;
+            this.txtAdManaMediPurchaseId.Size = new System.Drawing.Size(200, 22);
+            this.txtAdManaMediPurchaseId.TabIndex = 29;
+            // 
+            // pnlAdManaMediPurchaseId
+            // 
+            this.pnlAdManaMediPurchaseId.Controls.Add(this.txtAdManaMediPurchaseId);
+            this.pnlAdManaMediPurchaseId.Controls.Add(this.label21);
+            this.pnlAdManaMediPurchaseId.Location = new System.Drawing.Point(517, 378);
+            this.pnlAdManaMediPurchaseId.Name = "pnlAdManaMediPurchaseId";
+            this.pnlAdManaMediPurchaseId.Size = new System.Drawing.Size(339, 34);
+            this.pnlAdManaMediPurchaseId.TabIndex = 31;
+            // 
             // AdminManageMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -712,6 +745,7 @@
             this.Name = "AdminManageMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminManageMedicine";
+            this.Load += new System.EventHandler(this.AdminManageMedicine_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -721,6 +755,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdManaMedi)).EndInit();
+            this.pnlAdManaMediPurchaseId.ResumeLayout(false);
+            this.pnlAdManaMediPurchaseId.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -788,5 +824,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierID;
         private System.Windows.Forms.TextBox txtAdManaMediSearchByCategory;
         private System.Windows.Forms.TextBox txtAdManaMediSearchByName;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtAdManaMediPurchaseId;
+        private System.Windows.Forms.Panel pnlAdManaMediPurchaseId;
     }
 }
