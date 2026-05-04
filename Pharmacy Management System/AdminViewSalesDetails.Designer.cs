@@ -288,6 +288,7 @@
             this.dgvAdViewSalesDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAdViewSalesDetails.Size = new System.Drawing.Size(948, 390);
             this.dgvAdViewSalesDetails.TabIndex = 20;
+            this.dgvAdViewSalesDetails.DoubleClick += new System.EventHandler(this.dgvAdViewSalesDetails_DoubleClick);
             // 
             // SaleID
             // 

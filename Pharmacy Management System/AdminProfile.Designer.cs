@@ -354,6 +354,7 @@
             this.btnAdProSave.TabIndex = 27;
             this.btnAdProSave.Text = "Save";
             this.btnAdProSave.UseVisualStyleBackColor = true;
+            this.btnAdProSave.Click += new System.EventHandler(this.btnAdProSave_Click);
             // 
             // btnAdProClear
             // 

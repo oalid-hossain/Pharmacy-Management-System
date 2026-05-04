@@ -114,5 +114,57 @@ namespace Pharmacy_Management_System
 
 
         }
+
+        private bool IsValidToSave()
+        {
+            if (string.IsNullOrEmpty(this.txtAdProUserName.Text) || 
+                string.IsNullOrEmpty(this.txtAdProUserPhone.Text) ||
+                string.IsNullOrEmpty(this.txtAdProUserEmail.Text) ||
+                string.IsNullOrEmpty(this.dtpAdProUserDOB.Text))
+
+            { return false; }
+
+            else
+            { return true; }
+        }
+
+        private void btnAdProSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!this.IsValidToSave())
+                {
+                    MessageBox.Show("Please fill all the empty fields");
+                    return;
+                }
+
+                var query = "select * from Users where UserId = '" + this.txtAdProUserID.Text + "';";
+                var ds = this.Da.ExecuteQuery(query);
+
+                if (ds.Tables[0].Rows.Count == 1)
+                {
+                    //update
+                    var sql = @"update users
+                                set UserName = '" + this.txtAdProUserName.Text + @"',
+                                    UserPhone = '" + this.txtAdProUserPhone.Text + @"',
+                                    UserEmail = '" + this.txtAdProUserEmail.Text + @"',
+                                    UserDOB = '" + this.dtpAdProUserDOB.Value.ToString("yyyy-MM-dd") + @"'
+                                    
+                                    where UserId = '" + this.txtAdProUserID.Text + "'; ";
+
+                    var count = this.Da.ExecuteDMLQuery(sql);
+
+                    if (count == 1)
+                        MessageBox.Show("Data has been updated in the list");
+                    else
+                        MessageBox.Show("Data hasn't been updated in the list");
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("An error has occurred in the system, please try again.\n" + exc.Message);
+            }
+
+        }
     }
 }

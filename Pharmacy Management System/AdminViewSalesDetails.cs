@@ -121,19 +121,19 @@ namespace Pharmacy_Management_System
                 string fromText = txtAdViSaDeSearchFrom.Text;
                 string toText = txtAdViSaDeSearchTo.Text;
 
-                // ---------------- FROM ----------------
+                // 
                 if (fromText == "")
                 {
                     fromText = minDate.ToString("yyyy-MM-dd");
                 }
 
-                // ---------------- TO ----------------
+                //
                 if (toText == "")
                 {
                     toText = sysDate.ToString("yyyy-MM-dd");
                 }
 
-                // ---------------- VALIDATION ----------------
+                //
                 if (Convert.ToDateTime(fromText) > sysDate)
                 {
                     this.lblAdViSaDeFromDateError.Text = "Invalid Input";
@@ -151,7 +151,7 @@ namespace Pharmacy_Management_System
                     return;
                 }
 
-                // ---------------- QUERY (PURE CONCAT) ----------------
+                // 
                 string sql = @"SELECT s.SaleID, sd.MedicineID, sd.Quantity,s.TotalAmount, s.SaleDate, s.UserID
                            FROM Sales s
                             INNER JOIN SalesDetails sd ON s.SaleID = sd.SaleID
@@ -188,6 +188,64 @@ namespace Pharmacy_Management_System
             this.PupulateGridView(@"SELECT s.SaleID,sd.MedicineID,sd.Quantity,s.TotalAmount,s.SaleDate,  
                                   s.UserID FROM Sales s INNER JOIN SalesDetails sd ON s.SaleID = sd.SaleID;");
             this.pnlAdViSaDeSellerAndProductDetails.Visible = false;
+        }
+
+        private void dgvAdViewSalesDetails_DoubleClick(object sender, EventArgs e)
+        {
+            // 
+            if (this.dgvAdViewSalesDetails.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a row first!");
+                return;
+            }
+
+            // 
+            var uid = this.dgvAdViewSalesDetails.CurrentRow.Cells["UserId"].Value.ToString();
+            var mid = this.dgvAdViewSalesDetails.CurrentRow.Cells["MedicineId"].Value.ToString();
+
+            //
+            var userSql = @"SELECT UserId, UserName, UserPhone, JoiningDate, Salary 
+                    FROM Users 
+                    WHERE UserId = '" + uid + "'";
+
+            var dtUser = this.Da.ExecuteQueryTable(userSql);
+
+            if (dtUser.Rows.Count > 0)
+            {
+                this.lblAdViSaDeSellerId.Text = dtUser.Rows[0]["UserId"].ToString();
+                this.lblAdViSaDeSellerName.Text = dtUser.Rows[0]["UserName"].ToString();
+                this.lblAdViSaDeSellerPhone.Text = dtUser.Rows[0]["UserPhone"].ToString();
+                this.lblAdViSaDeSellerJoiningDate.Text = Convert.ToDateTime(dtUser.Rows[0]["JoiningDate"]).ToString("yyyy-MM-dd");
+                this.lblAdViSaDeSellerSalary.Text = dtUser.Rows[0]["Salary"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("User not found!");
+            }
+
+            // 
+            var medSql = @"SELECT MedicineId, MedicineName, Category, SellPrice, SupplierId 
+                   FROM Medicines 
+                   WHERE MedicineId = '" + mid + "'";
+
+            var dtMed = this.Da.ExecuteQueryTable(medSql);
+
+            if (dtMed.Rows.Count > 0)
+            {
+                this.lblAdViSaDeProductId.Text = dtMed.Rows[0]["MedicineId"].ToString();
+                this.lblAdViSaDeProductName.Text = dtMed.Rows[0]["MedicineName"].ToString();
+                this.lblAdViSaDeProductCategory.Text = dtMed.Rows[0]["Category"].ToString();
+                this.lblAdViSaDeProductSellPrice.Text = dtMed.Rows[0]["SellPrice"].ToString();
+                this.lblAdViSaDeProductSuppilerId.Text = dtMed.Rows[0]["SupplierId"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Medicine not found!");
+            }
+
+
+            this.pnlAdViSaDeSellerAndProductDetails.Visible = true;
+
         }
     }
 }
